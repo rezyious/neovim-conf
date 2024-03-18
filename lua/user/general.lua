@@ -6,16 +6,21 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
---clipboard
-vim.g.clipboard = {
-	name = "WslClipboard",
+--Clipboard
+vim.opt.clipboard:append("unnamedplus")
+
+clipboard = {
+	name = "myClipboard",
 	copy = {
-		["+"] = "clip.exe",
-		["*"] = "clip.exe",
+		["+"] = { "wl-copy", "load-buffer", "-" },
+		["*"] = { "wl-copy", "load-buffer", "-" },
 	},
 	paste = {
-		["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-		["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+		["+"] = { "wl-copy", "save-buffer", "-" },
+		["*"] = { "wl-copy", "save-buffer", "-" },
 	},
-	cache_enabled = 0,
+	cache_enabled = 1,
 }
+
+-- disable mouse
+vim.opt.mouse = ""
