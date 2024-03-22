@@ -1,0 +1,29 @@
+This setup is tested to work with windows.
+This is a good place to look for a start :
+
+https://blog.nikfp.com/how-to-install-and-set-up-neovim-on-windows
+
+Follow this steps:
+1.make sure to run terminal as admin
+2.make sure you have winget and chocolatey
+https://chocolatey.org/install
+3.Install rpigrep:
+
+winget install 'ripgrep msvc' 
+
+or 
+
+choco install ripgrep
+
+4. install ziq
+choco install zig
+
+By the way this is important :
+If you have problems with treesitter run :TSUpdate to compile and wait
+
+This is helpful:
+If the Linux docs say ~/.config/nvim as a the root of a directory, the default Windows directory is ~\AppData\Local\nvim
+
+If the Linux docs say ~/.local/share/nvim as the root of a directory, the Windows default directory is ~\AppData\Local\nvim-data
+
+
